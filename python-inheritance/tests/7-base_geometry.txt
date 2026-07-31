@@ -64,3 +64,13 @@ Testing with None::
     >>> bg.integer_validator("age", None)
     Traceback (most recent call last):
     TypeError: age must be an integer
+
+Testing missing arguments::
+
+    >>> bg.integer_validator() #doctest: +ELLIPSIS
+    Traceback (most recent call last):
+    TypeError: ...
+
+    >>> bg.integer_validator("age") #doctest: +ELLIPSIS
+    Traceback (most recent call last):
+    TypeError: ...
