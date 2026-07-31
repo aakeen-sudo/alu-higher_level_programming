@@ -28,3 +28,9 @@ Testing with negative numbers::
     >>> my_list2.append(-2)
     >>> my_list2.print_sorted()
     [-2, -1, 3]
+
+Testing with an empty list::
+
+    >>> my_list3 = MyList()
+    >>> my_list3.print_sorted()
+    []
