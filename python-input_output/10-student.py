@@ -26,7 +26,9 @@ class Student:
                 retrieve. If not a list of strings, all attributes
                 are retrieved.
         """
-        if isinstance(attrs, list) and all(isinstance(a, str)
-                                            for a in attrs):
+        is_valid_list = isinstance(attrs, list)
+        if is_valid_list:
+            is_valid_list = all(isinstance(a, str) for a in attrs)
+        if is_valid_list:
             return {k: v for k, v in self.__dict__.items() if k in attrs}
         return self.__dict__
