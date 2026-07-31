@@ -34,3 +34,33 @@ Testing area still not implemented::
     >>> bg.area()
     Traceback (most recent call last):
     Exception: area() is not implemented
+
+Testing with a tuple value::
+
+    >>> bg.integer_validator("age", (4,))
+    Traceback (most recent call last):
+    TypeError: age must be an integer
+
+Testing with a list value::
+
+    >>> bg.integer_validator("age", [3])
+    Traceback (most recent call last):
+    TypeError: age must be an integer
+
+Testing with a boolean value::
+
+    >>> bg.integer_validator("age", True)
+    Traceback (most recent call last):
+    TypeError: age must be an integer
+
+Testing with a set value::
+
+    >>> bg.integer_validator("age", {3, 4})
+    Traceback (most recent call last):
+    TypeError: age must be an integer
+
+Testing with None::
+
+    >>> bg.integer_validator("age", None)
+    Traceback (most recent call last):
+    TypeError: age must be an integer
