@@ -13,7 +13,7 @@ class TestRectangle(unittest.TestCase):
         self.assertEqual(r1.height, 2)
 
     def test_id_inherited(self):
-        r1 = Rectangle(3, 2, 9)
+        r1 = Rectangle(3, 2, id=9)
         self.assertEqual(r1.id, 9)
 
     def test_width_not_int(self):
@@ -31,6 +31,32 @@ class TestRectangle(unittest.TestCase):
     def test_height_negative(self):
         with self.assertRaises(ValueError):
             Rectangle(3, -2)
+
+    def test_x_y(self):
+        r1 = Rectangle(3, 2, 1, 5)
+        self.assertEqual(r1.x, 1)
+        self.assertEqual(r1.y, 5)
+
+    def test_x_default(self):
+        r1 = Rectangle(3, 2)
+        self.assertEqual(r1.x, 0)
+        self.assertEqual(r1.y, 0)
+
+    def test_x_not_int(self):
+        with self.assertRaises(TypeError):
+            Rectangle(3, 2, "1")
+
+    def test_x_negative(self):
+        with self.assertRaises(ValueError):
+            Rectangle(3, 2, -1)
+
+    def test_y_not_int(self):
+        with self.assertRaises(TypeError):
+            Rectangle(3, 2, 1, "5")
+
+    def test_y_negative(self):
+        with self.assertRaises(ValueError):
+            Rectangle(3, 2, 1, -5)
 
 
 if __name__ == "__main__":
