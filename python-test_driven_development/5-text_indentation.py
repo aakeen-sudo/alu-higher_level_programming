@@ -15,22 +15,15 @@ def text_indentation(text):
         raise TypeError("text must be a string")
 
     stripped = text.strip()
-    line = ""
-    i = 0
     length = len(stripped)
+    i = 0
 
     while i < length:
         char = stripped[i]
-        line += char
-        if char in ".?:":
-            print(line.strip())
-            print()
-            line = ""
+        if char == " " and i > 0 and stripped[i - 1] in ".?:":
             i += 1
-            while i < length and stripped[i] == " ":
-                i += 1
             continue
+        print(char, end="")
+        if char in ".?:":
+            print("\n")
         i += 1
-
-    if line.strip():
-        print(line.strip())
