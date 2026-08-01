@@ -95,6 +95,16 @@ class TestRectangle(unittest.TestCase):
             os.remove("Rectangle.json")
         self.assertEqual(Rectangle.load_from_file(), [])
 
+    def test_bigger_or_equal(self):
+        r1 = Rectangle(5, 5)
+        r2 = Rectangle(3, 3)
+        self.assertEqual(Rectangle.bigger_or_equal(r1, r2), r1)
+
+    def test_bigger_or_equal_type_error(self):
+        r1 = Rectangle(5, 5)
+        with self.assertRaises(TypeError):
+            Rectangle.bigger_or_equal(r1, "not a rectangle")
+
 
 if __name__ == "__main__":
     unittest.main()
