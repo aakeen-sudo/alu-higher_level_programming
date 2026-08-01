@@ -58,6 +58,10 @@ class TestRectangle(unittest.TestCase):
         with self.assertRaises(ValueError):
             Rectangle(3, 2, 1, -5)
 
+    def test_area(self):
+        r1 = Rectangle(3, 2)
+        self.assertEqual(r1.area(), 6)
+
 
 if __name__ == "__main__":
     unittest.main()
