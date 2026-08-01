@@ -62,6 +62,19 @@ class TestRectangle(unittest.TestCase):
         r1 = Rectangle(3, 2)
         self.assertEqual(r1.area(), 6)
 
+    def test_perimeter(self):
+        r1 = Rectangle(3, 2)
+        self.assertEqual(r1.perimeter(), 10)
+
+    def test_str(self):
+        r1 = Rectangle(2, 2, 0, 0, 1)
+        self.assertEqual(str(r1), "[Rectangle] (1) 0/0 - 2/2\n##\n##")
+
+    def test_repr(self):
+        r1 = Rectangle(2, 2, 0, 0, 1)
+        r2 = eval(repr(r1))
+        self.assertEqual(str(r1), str(r2))
+
 
 if __name__ == "__main__":
     unittest.main()
