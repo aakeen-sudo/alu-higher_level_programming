@@ -110,3 +110,14 @@ class Rectangle(Base):
             "x": self.x,
             "y": self.y
         }
+
+    def update(self, *args, **kwargs):
+        """Update attributes via *args (id, width, height, x, y order)
+        or **kwargs (attribute names)."""
+        if args and len(args) > 0:
+            attrs = ["id", "width", "height", "x", "y"]
+            for attr, value in zip(attrs, args):
+                setattr(self, attr, value)
+        else:
+            for key, value in kwargs.items():
+                setattr(self, key, value)

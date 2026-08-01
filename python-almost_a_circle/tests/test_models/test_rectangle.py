@@ -80,6 +80,21 @@ class TestRectangle(unittest.TestCase):
         expected = {"id": 1, "width": 10, "height": 2, "x": 1, "y": 9}
         self.assertEqual(r1.to_dictionary(), expected)
 
+    def test_save_to_json_file(self):
+        r1 = Rectangle(10, 7, 2, 8)
+        Rectangle.save_to_json_file([r1])
+        list_rects = Rectangle.load_from_file()
+        self.assertEqual(list_rects[0].width, 10)
+        self.assertEqual(list_rects[0].height, 7)
+        self.assertEqual(list_rects[0].x, 2)
+        self.assertEqual(list_rects[0].y, 8)
+
+    def test_load_from_file_no_file(self):
+        import os
+        if os.path.exists("Rectangle.json"):
+            os.remove("Rectangle.json")
+        self.assertEqual(Rectangle.load_from_file(), [])
+
 
 if __name__ == "__main__":
     unittest.main()
