@@ -100,3 +100,13 @@ class Rectangle(Base):
     def __del__(self):
         """Print a message on deletion."""
         print("Bye rectangle...")
+
+    def to_dictionary(self):
+        """Return the dictionary representation of the Rectangle."""
+        return {
+            "id": self.id,
+            "width": self.width,
+            "height": self.height,
+            "x": self.x,
+            "y": self.y
+        }

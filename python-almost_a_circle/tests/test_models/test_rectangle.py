@@ -75,6 +75,11 @@ class TestRectangle(unittest.TestCase):
         r2 = eval(repr(r1))
         self.assertEqual(str(r1), str(r2))
 
+    def test_to_dictionary(self):
+        r1 = Rectangle(10, 2, 1, 9, 1)
+        expected = {"id": 1, "width": 10, "height": 2, "x": 1, "y": 9}
+        self.assertEqual(r1.to_dictionary(), expected)
+
 
 if __name__ == "__main__":
     unittest.main()
