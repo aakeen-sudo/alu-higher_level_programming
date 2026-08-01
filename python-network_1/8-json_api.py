@@ -9,7 +9,8 @@ if __name__ == "__main__":
     else:
         letter = ""
 
-    response = requests.post("http://0.0.0.0:5000/search_user", data={"q": letter})
+    url = "http://0.0.0.0:5000/search_user"
+    response = requests.post(url, data={"q": letter})
 
     try:
         json_data = response.json()
