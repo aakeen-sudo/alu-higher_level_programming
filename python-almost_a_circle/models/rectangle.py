@@ -77,3 +77,26 @@ class Rectangle(Base):
     def area(self):
         """Return the area of the Rectangle."""
         return self.width * self.height
+
+    def perimeter(self):
+        """Return the perimeter of the Rectangle."""
+        return 2 * (self.width + self.height)
+
+    def __str__(self):
+        """Return the printable representation of the Rectangle."""
+        if self.width == 0 or self.height == 0:
+            return ""
+        result = "[Rectangle] ({}) {}/{} - {}/{}\n".format(
+            self.id, self.x, self.y, self.width, self.height)
+        rect = "\n".join(["#" * self.width for _ in range(self.height)])
+        result += " " * self.y + rect.replace("\n", "\n" + " " * self.y)
+        return result.rstrip()
+
+    def __repr__(self):
+        """Return a string representation for eval()."""
+        return "Rectangle({}, {}, {}, {}, {})".format(
+            self.width, self.height, self.x, self.y, self.id)
+
+    def __del__(self):
+        """Print a message on deletion."""
+        print("Bye rectangle...")
